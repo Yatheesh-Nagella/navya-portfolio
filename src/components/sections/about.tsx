@@ -28,7 +28,7 @@ const About = () => {
       icon: "🎯"
     },
     {
-      title: "Impact", 
+      title: "Impact",
       description: "Focusing on analytics that drive real-world positive change",
       icon: "💡"
     },
@@ -40,7 +40,7 @@ const About = () => {
   ];
 
   return (
-    <section 
+    <section
       id="about"
       style={{
         minHeight: '100vh',
@@ -49,8 +49,8 @@ const About = () => {
         position: 'relative',
       }}
     >
-      <div style={{ 
-        maxWidth: '1200px', 
+      <div style={{
+        maxWidth: '1200px',
         margin: '0 auto',
       }}>
         {/* Section Title */}
@@ -85,7 +85,7 @@ const About = () => {
           gap: '4rem',
           alignItems: 'center',
         }}>
-          
+
           {/* Story Content */}
           <div style={{
             opacity: isVisible ? 1 : 0,
@@ -101,44 +101,44 @@ const About = () => {
               <p style={{ marginBottom: '1.5rem' }}>
                 My journey into business analytics began with a simple fascination: how do numbers tell stories that can change the world? During my undergraduate studies in Business Administration, I discovered that behind every successful business decision lies a foundation of data waiting to be understood and leveraged.
               </p>
-              
+
               <p style={{ marginBottom: '1.5rem' }}>
                 My path has taken me from analyzing seller performance data at Amazon in Hyderabad, where I helped improve customer experiences for thousands of marketplace partners, to pursuing advanced analytics education at the University of Central Oklahoma.
               </p>
-              
+
               <p>
-                What drives me is the belief that data analytics isn't just about numbers—it's about creating meaningful impact. Whether I'm developing predictive maintenance models that could prevent railway accidents or helping businesses optimize their operations, I see each project as an opportunity to make life better for real people.
+                What drives me is the belief that data analytics isn&apos;t just about numbers—it&apos;s about creating meaningful impact...
               </p>
             </div>
           </div>
 
           {/* Profile Image Placeholder */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
-                transition: 'all 0.8s ease 0.8s',
-              }}>
-                <div style={{
-                  width: '350px',
-                  height: '420px',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
-                  // ... other existing styles
-                }}>
-                  <img
-                    src="/images/uco-grad.jpg"
-                    alt="Navya Nanduri Graduation"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    }}
-                  />
-                </div>
-              </div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
+            transition: 'all 0.8s ease 0.8s',
+          }}>
+            <div style={{
+              width: '350px',
+              height: '420px',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
+              // ... other existing styles
+            }}>
+              <img
+                src="/images/uco-grad.jpg"
+                alt="Navya Nanduri Graduation"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Philosophy Section */}
@@ -155,7 +155,7 @@ const About = () => {
           }}>
             My Professional Philosophy
           </h3>
-          
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
