@@ -113,59 +113,32 @@ const About = () => {
           </div>
 
           {/* Profile Image Placeholder */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
-            transition: 'all 0.8s ease 0.8s',
-          }}>
-            <div style={{
-              width: '350px',
-              height: '420px',
-              borderRadius: '20px',
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '1.1rem',
-              textAlign: 'center',
-              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
-              position: 'relative',
-              overflow: 'hidden',
-              cursor: 'pointer',
-              transition: 'all 0.5s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05) rotateY(5deg)';
-              e.currentTarget.style.boxShadow = '0 40px 80px rgba(0, 0, 0, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1) rotateY(0deg)';
-              e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.3)';
-            }}
-            >
-              <div>
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎓</div>
-                <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>Graduation Achievement</div>
-                <div style={{ fontSize: '0.9rem', opacity: '0.8' }}>UCO Business Analytics</div>
-                <div style={{ fontSize: '0.9rem', opacity: '0.8' }}>CGPA: 3.56</div>
-              </div>
-              
-              {/* Shimmer Effect */}
               <div style={{
-                position: 'absolute',
-                top: '-50%',
-                left: '-50%',
-                width: '200%',
-                height: '200%',
-                background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                transform: 'rotate(45deg)',
-                animation: 'shimmer 3s linear infinite',
-              }} />
-            </div>
-          </div>
+                display: 'flex',
+                justifyContent: 'center',
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
+                transition: 'all 0.8s ease 0.8s',
+              }}>
+                <div style={{
+                  width: '350px',
+                  height: '420px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
+                  // ... other existing styles
+                }}>
+                  <img
+                    src="/images/uco-grad.jpg"
+                    alt="Navya Nanduri Graduation"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </div>
+              </div>
         </div>
 
         {/* Philosophy Section */}

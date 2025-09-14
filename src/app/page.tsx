@@ -1,5 +1,5 @@
 import Navbar from '@/components/layout/navbar';
-import Hero from '@/components/sections/hero';
+import Hero from '@/components/sections/home';
 import About from '@/components/sections/about';
 import Skills from '@/components/sections/skills';
 import Projects from '@/components/sections/projects';
