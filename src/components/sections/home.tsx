@@ -19,15 +19,15 @@ const Hero = () => {
         width: '100%',
         padding: '0 2rem',
         display: 'grid',
-        gridTemplateColumns: '1fr 400px', // Fixed layout: text left, image right
-        gap: '4rem',
+        gridTemplateColumns: '1.2fr 0.8fr', // Fixed layout: text left, image right
+        gap: '3rem',
         alignItems: 'center',
       }}>
         
         {/* Text Content - Left Side */}
         <div style={{ textAlign: 'left' }}> {/* Changed to left align */}
           <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 8vw, 4rem)',
+            fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
             fontWeight: 'bold',
             background: 'linear-gradient(to right, #60a5fa, #c084fc)',
             WebkitBackgroundClip: 'text',
@@ -43,7 +43,7 @@ const Hero = () => {
             fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
             color: '#60a5fa',
             fontWeight: '600',
-            marginBottom: '1rem',
+            marginBottom: '1.5rem',
           }}>
             Business Analytics Professional
           </h2>
@@ -52,7 +52,7 @@ const Hero = () => {
             fontSize: 'clamp(1rem, 3vw, 1.25rem)',
             color: 'rgba(255, 255, 255, 0.7)',
             lineHeight: '1.6',
-            maxWidth: '600px',
+            maxWidth: '500px',
           }}>
             Transforming Data into Strategic Business Solutions with cutting-edge analytics and machine learning
           </p>
@@ -77,8 +77,8 @@ const Hero = () => {
             
             {/* Main Profile Image */}
             <div style={{
-              width: '350px',
-              height: '350px',
+              width: '380px',
+              height: '380px',
               borderRadius: '50%',
               overflow: 'hidden',
               border: '8px solid rgba(255, 255, 255, 0.1)',
