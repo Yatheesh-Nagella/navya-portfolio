@@ -67,7 +67,7 @@ const Navbar = () => {
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
-          Navya Nanduri
+          Navya
         </button>
 
         {/* Navigation Links */}
