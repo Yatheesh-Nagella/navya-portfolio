@@ -75,7 +75,7 @@ const Skills = () => {
             style={{
                 minHeight: '100vh',
                 background: 'rgba(30, 41, 59, 0.8)',
-                padding: '120px 2rem',
+                padding: '100px 1rem 50px 1rem', // Mobile-first padding
                 position: 'relative',
             }}
         >
@@ -84,9 +84,9 @@ const Skills = () => {
                 margin: '0 auto',
             }}>
                 {/* Section Title */}
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                     <h2 style={{
-                        fontSize: 'clamp(2.5rem, 6vw, 3rem)',
+                        fontSize: 'clamp(2rem, 8vw, 3rem)', // Better mobile scaling
                         fontWeight: '700',
                         color: 'white',
                         marginBottom: '1rem',
@@ -97,7 +97,7 @@ const Skills = () => {
                         Skills & Expertise
                     </h2>
                     <div style={{
-                        width: '100px',
+                        width: '80px', // Smaller on mobile
                         height: '4px',
                         background: 'linear-gradient(90deg, #60a5fa, #fbbf24)',
                         margin: '0 auto',
@@ -107,12 +107,13 @@ const Skills = () => {
                         transition: 'all 0.8s ease 0.4s',
                     }} />
                     <p style={{
-                        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                        fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', // Better mobile scaling
                         color: 'rgba(255, 255, 255, 0.7)',
                         marginTop: '1.5rem',
                         opacity: isVisible ? 1 : 0,
                         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                         transition: 'all 0.8s ease 0.6s',
+                        padding: '0 1rem', // Mobile padding
                     }}>
                         Technical proficiencies spanning analytics, visualization, and machine learning
                     </p>
@@ -121,15 +122,16 @@ const Skills = () => {
                 {/* Skills Grid */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                    gridTemplateColumns: '1fr', // Single column on mobile
                     gap: '2rem',
-                }}>
+                }}
+                className="skills-grid">
                     {skillCategories.map((category, categoryIndex) => (
                         <div
                             key={category.category}
                             style={{
                                 background: 'rgba(255, 255, 255, 0.03)',
-                                padding: '2.5rem',
+                                padding: '2rem 1.5rem', // Mobile-friendly padding
                                 borderRadius: '20px',
                                 border: '1px solid rgba(255, 255, 255, 0.1)',
                                 backdropFilter: 'blur(20px)',
@@ -140,8 +142,8 @@ const Skills = () => {
                             }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                                e.currentTarget.style.transform = 'translateY(-10px)';
-                                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2)';
+                                e.currentTarget.style.transform = 'translateY(-5px)'; // Less movement on mobile
+                                e.currentTarget.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
                                 e.currentTarget.style.borderColor = '#60a5fa';
                             }}
                             onMouseLeave={(e) => {
@@ -154,13 +156,13 @@ const Skills = () => {
                             {/* Category Header */}
                             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                                 <div style={{
-                                    fontSize: '2.5rem',
+                                    fontSize: 'clamp(2rem, 6vw, 2.5rem)', // Responsive icon size
                                     marginBottom: '1rem',
                                 }}>
                                     {category.icon}
                                 </div>
                                 <h3 style={{
-                                    fontSize: '1.4rem',
+                                    fontSize: 'clamp(1.2rem, 5vw, 1.4rem)', // Responsive title
                                     fontWeight: '600',
                                     color: 'white',
                                     margin: 0,
@@ -179,22 +181,25 @@ const Skills = () => {
                                             justifyContent: 'space-between',
                                             alignItems: 'center',
                                             marginBottom: '0.5rem',
+                                            flexWrap: 'wrap', // Allow wrapping on very small screens
+                                            gap: '0.5rem',
                                         }}>
                                             <span style={{
                                                 color: 'rgba(255, 255, 255, 0.9)',
-                                                fontSize: '1rem',
+                                                fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', // Responsive font size
                                                 fontWeight: '500',
                                             }}>
                                                 {skill.name}
                                             </span>
                                             <span style={{
                                                 color: getLevelColor(skill.level),
-                                                fontSize: '0.9rem',
+                                                fontSize: 'clamp(0.8rem, 3vw, 0.9rem)', // Responsive font size
                                                 fontWeight: '600',
                                                 padding: '2px 8px',
                                                 background: `${getLevelColor(skill.level)}20`,
                                                 borderRadius: '12px',
                                                 border: `1px solid ${getLevelColor(skill.level)}40`,
+                                                whiteSpace: 'nowrap',
                                             }}>
                                                 {skill.level}
                                             </span>
@@ -242,7 +247,7 @@ const Skills = () => {
                                         }}>
                                             <span style={{
                                                 color: 'rgba(255, 255, 255, 0.6)',
-                                                fontSize: '0.85rem',
+                                                fontSize: 'clamp(0.75rem, 3vw, 0.85rem)', // Responsive font size
                                                 fontWeight: '500',
                                             }}>
                                                 {animateSkills ? skill.percentage : 0}%
@@ -257,7 +262,7 @@ const Skills = () => {
 
                 {/* Additional Skills Summary */}
                 <div style={{
-                    marginTop: '4rem',
+                    marginTop: '3rem',
                     textAlign: 'center',
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -265,7 +270,7 @@ const Skills = () => {
                 }}>
                     <div style={{
                         background: 'rgba(255, 255, 255, 0.05)',
-                        padding: '2rem',
+                        padding: '2rem 1.5rem', // Mobile-friendly padding
                         borderRadius: '15px',
                         border: '1px solid rgba(255, 255, 255, 0.1)',
                         backdropFilter: 'blur(10px)',
@@ -274,7 +279,7 @@ const Skills = () => {
                     }}>
                         <h4 style={{
                             color: '#60a5fa',
-                            fontSize: '1.2rem',
+                            fontSize: 'clamp(1rem, 4.5vw, 1.2rem)', // Responsive title
                             fontWeight: '600',
                             marginBottom: '1rem',
                         }}>
@@ -284,6 +289,7 @@ const Skills = () => {
                             color: 'rgba(255, 255, 255, 0.8)',
                             lineHeight: '1.6',
                             margin: 0,
+                            fontSize: 'clamp(0.85rem, 3.5vw, 1rem)', // Responsive font size
                         }}>
                             Database Management (MySQL, MongoDB) • Statistical Modeling •
                             Business Intelligence • Data Visualization • Process Optimization •
@@ -293,19 +299,59 @@ const Skills = () => {
                 </div>
             </div>
 
-            {/* CSS Animations */}
+            {/* CSS Animations and Responsive Styles */}
             <style jsx>{`
-        @keyframes skillShimmer {
-          0% { left: -100%; }
-          100% { left: 100%; }
-        }
+                @keyframes skillShimmer {
+                    0% { left: -100%; }
+                    100% { left: 100%; }
+                }
 
-        @media (max-width: 768px) {
-          section {
-            padding: 80px 1rem !important;
-          }
-        }
-      `}</style>
+                /* Mobile: Single column */
+                @media (max-width: 768px) {
+                    .skills-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 1.5rem !important;
+                    }
+                }
+
+                /* Tablet: Two columns */
+                @media (min-width: 769px) and (max-width: 1024px) {
+                    .skills-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 2rem !important;
+                    }
+                }
+
+                /* Desktop: Three columns */
+                @media (min-width: 1025px) {
+                    .skills-grid {
+                        grid-template-columns: repeat(3, 1fr) !important;
+                        gap: 2rem !important;
+                    }
+                    
+                    section {
+                        padding: 120px 2rem !important;
+                    }
+                }
+
+                /* Very small mobile screens */
+                @media (max-width: 480px) {
+                    section {
+                        padding: 60px 0.75rem 40px 0.75rem !important;
+                    }
+                    
+                    .skills-grid {
+                        gap: 1rem !important;
+                    }
+                }
+
+                /* Landscape mobile */
+                @media (max-width: 768px) and (orientation: landscape) {
+                    section {
+                        padding: 40px 1rem 30px 1rem !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 };
