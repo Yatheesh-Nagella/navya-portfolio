@@ -79,7 +79,7 @@ const Contact = () => {
       style={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9))',
-        padding: '120px 2rem',
+        padding: '100px 1rem 50px 1rem', // Mobile-friendly padding
         position: 'relative',
       }}
     >
@@ -88,9 +88,9 @@ const Contact = () => {
         margin: '0 auto',
       }}>
         {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 3rem)',
+            fontSize: 'clamp(2rem, 8vw, 3rem)', // Better mobile scaling
             fontWeight: '700',
             color: 'white',
             marginBottom: '1rem',
@@ -101,7 +101,7 @@ const Contact = () => {
             Let's Transform Data Into Impact Together
           </h2>
           <div style={{
-            width: '100px',
+            width: '80px', // Smaller on mobile
             height: '4px',
             background: 'linear-gradient(90deg, #60a5fa, #fbbf24)',
             margin: '0 auto',
@@ -111,7 +111,7 @@ const Contact = () => {
             transition: 'all 0.8s ease 0.4s',
           }} />
           <p style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', // Better mobile scaling
             color: 'rgba(255, 255, 255, 0.8)',
             marginTop: '1.5rem',
             maxWidth: '600px',
@@ -119,6 +119,7 @@ const Contact = () => {
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
             transition: 'all 0.8s ease 0.6s',
+            padding: '0 1rem', // Mobile padding
           }}>
             Ready to unlock the power of your data? Let's discuss how analytics can drive your next breakthrough.
           </p>
@@ -126,33 +127,30 @@ const Contact = () => {
 
         {/* Main Contact Content */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '3rem',
+          display: 'flex',
+          flexDirection: 'column', // Stack vertically on mobile
+          gap: '2rem',
           alignItems: 'stretch',
-        }}>
+        }}
+        className="contact-grid">
           
           {/* Contact Form */}
           <div style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
+            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 0.8s',
-            display: 'flex',
-            flexDirection: 'column',
+            order: 1, // Form first on mobile
           }}>
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
-              padding: '2.5rem',
+              padding: '2rem 1.5rem', // Mobile-friendly padding
               borderRadius: '20px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(20px)',
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
             }}>
               <h3 style={{
                 color: '#60a5fa',
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', // Responsive font size
                 fontWeight: '600',
                 marginBottom: '1.5rem',
                 textAlign: 'center',
@@ -160,7 +158,7 @@ const Contact = () => {
                 Send a Message
               </h3>
 
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <div>
                   <input
                     type="text"
@@ -171,13 +169,14 @@ const Contact = () => {
                     required
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: '0.9rem', // Slightly smaller for mobile
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '10px',
                       color: 'white',
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 4vw, 1rem)', // Responsive font
                       transition: 'all 0.3s ease',
+                      boxSizing: 'border-box',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#60a5fa';
@@ -202,13 +201,14 @@ const Contact = () => {
                     required
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: '0.9rem',
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '10px',
                       color: 'white',
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 4vw, 1rem)',
                       transition: 'all 0.3s ease',
+                      boxSizing: 'border-box',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#60a5fa';
@@ -232,13 +232,14 @@ const Contact = () => {
                     onChange={handleInputChange}
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: '0.9rem',
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '10px',
                       color: 'white',
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 4vw, 1rem)',
                       transition: 'all 0.3s ease',
+                      boxSizing: 'border-box',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#60a5fa';
@@ -260,18 +261,19 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={5}
+                    rows={4} // Fewer rows on mobile
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: '0.9rem',
                       background: 'rgba(255, 255, 255, 0.05)',
                       border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '10px',
                       color: 'white',
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 4vw, 1rem)',
                       resize: 'vertical',
-                      minHeight: '120px',
+                      minHeight: '100px',
                       transition: 'all 0.3s ease',
+                      boxSizing: 'border-box',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#60a5fa';
@@ -298,7 +300,7 @@ const Contact = () => {
                     color: 'white',
                     border: 'none',
                     borderRadius: '10px',
-                    fontSize: '1rem',
+                    fontSize: 'clamp(0.9rem, 4vw, 1rem)',
                     fontWeight: '600',
                     cursor: isSubmitting ? 'not-allowed' : 'pointer',
                     transition: 'all 0.3s ease',
@@ -328,23 +330,21 @@ const Contact = () => {
           {/* Contact Information */}
           <div style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
+            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
             transition: 'all 0.8s ease 1s',
-            display: 'flex',
-            flexDirection: 'column',
+            order: 2, // Contact info second on mobile
           }}>
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
-              padding: '2.5rem',
+              padding: '2rem 1.5rem', // Mobile-friendly padding
               borderRadius: '20px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(20px)',
               marginBottom: '2rem',
-              flex: 1,
             }}>
               <h3 style={{
                 color: '#60a5fa',
-                fontSize: '1.5rem',
+                fontSize: 'clamp(1.2rem, 5vw, 1.5rem)',
                 fontWeight: '600',
                 marginBottom: '1.5rem',
                 textAlign: 'center',
@@ -352,7 +352,7 @@ const Contact = () => {
                 Get In Touch
               </h3>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 {contactInfo.map((info, index) => (
                   <div
                     key={info.label}
@@ -377,16 +377,16 @@ const Contact = () => {
                     }}
                   >
                     <div style={{
-                      fontSize: '1.5rem',
-                      minWidth: '40px',
+                      fontSize: '1.3rem', // Slightly smaller for mobile
+                      minWidth: '35px',
                       textAlign: 'center',
                     }}>
                       {info.icon}
                     </div>
-                    <div>
+                    <div style={{ flex: 1 }}>
                       <div style={{
                         color: '#60a5fa',
-                        fontSize: '0.9rem',
+                        fontSize: 'clamp(0.8rem, 3.5vw, 0.9rem)',
                         fontWeight: '600',
                         marginBottom: '0.2rem',
                       }}>
@@ -394,7 +394,8 @@ const Contact = () => {
                       </div>
                       <div style={{
                         color: 'rgba(255, 255, 255, 0.8)',
-                        fontSize: '0.95rem',
+                        fontSize: 'clamp(0.8rem, 3.5vw, 0.95rem)',
+                        wordBreak: 'break-all', // Prevent overflow on mobile
                       }}>
                         {info.value}
                       </div>
@@ -407,7 +408,7 @@ const Contact = () => {
             {/* Call to Action */}
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
-              padding: '2rem',
+              padding: '1.5rem', // Mobile-friendly padding
               borderRadius: '20px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(20px)',
@@ -415,7 +416,7 @@ const Contact = () => {
             }}>
               <h4 style={{
                 color: '#fbbf24',
-                fontSize: '1.2rem',
+                fontSize: 'clamp(1rem, 4.5vw, 1.2rem)',
                 fontWeight: '600',
                 marginBottom: '1rem',
               }}>
@@ -438,9 +439,9 @@ const Contact = () => {
                     style={{
                       background: 'rgba(251, 191, 36, 0.2)',
                       color: '#fbbf24',
-                      padding: '0.5rem 1rem',
-                      borderRadius: '20px',
-                      fontSize: '0.85rem',
+                      padding: '0.5rem 0.8rem',
+                      borderRadius: '15px',
+                      fontSize: 'clamp(0.7rem, 3vw, 0.85rem)',
                       fontWeight: '500',
                       border: '1px solid rgba(251, 191, 36, 0.3)',
                     }}
@@ -461,9 +462,33 @@ const Contact = () => {
           color: rgba(255, 255, 255, 0.5);
         }
         
+        /* Desktop: Side by side layout */
+        @media (min-width: 769px) {
+          .contact-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 3rem !important;
+            flex-direction: row !important;
+          }
+          .contact-grid > div {
+            order: unset !important;
+          }
+        }
+
+        /* Mobile: Stack vertically */
         @media (max-width: 768px) {
-          section {
-            padding: 80px 1rem !important;
+          .contact-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2rem !important;
+          }
+        }
+
+        /* Tablet adjustments */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
           }
         }
       `}</style>
