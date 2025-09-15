@@ -100,7 +100,7 @@ const Projects = () => {
       style={{
         minHeight: '100vh',
         background: 'rgba(15, 23, 42, 0.9)',
-        padding: '120px 2rem',
+        padding: '100px 1rem 50px 1rem', // Mobile-first padding
         position: 'relative',
       }}
     >
@@ -109,9 +109,9 @@ const Projects = () => {
         margin: '0 auto',
       }}>
         {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 3rem)',
+            fontSize: 'clamp(2rem, 8vw, 3rem)', // Better mobile scaling
             fontWeight: '700',
             color: 'white',
             marginBottom: '1rem',
@@ -122,7 +122,7 @@ const Projects = () => {
             Featured Projects
           </h2>
           <div style={{
-            width: '100px',
+            width: '80px', // Smaller on mobile
             height: '4px',
             background: 'linear-gradient(90deg, #60a5fa, #fbbf24)',
             margin: '0 auto',
@@ -132,12 +132,13 @@ const Projects = () => {
             transition: 'all 0.8s ease 0.4s',
           }} />
           <p style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', // Better mobile scaling
             color: 'rgba(255, 255, 255, 0.7)',
             marginTop: '1.5rem',
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
             transition: 'all 0.8s ease 0.6s',
+            padding: '0 1rem', // Mobile padding
           }}>
             Real-world analytics projects driving meaningful business impact
           </p>
@@ -146,9 +147,10 @@ const Projects = () => {
         {/* Projects Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+          gridTemplateColumns: '1fr', // Single column on mobile
           gap: '2rem',
-        }}>
+        }}
+        className="projects-grid">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -160,68 +162,79 @@ const Projects = () => {
                 backdropFilter: 'blur(20px)',
                 transition: 'all 0.4s ease',
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'scale(1)' : 'scale(0.9)',
+                transform: isVisible ? 'scale(1)' : 'scale(0.95)',
                 transitionDelay: `${0.8 + (index * 0.1)}s`,
                 cursor: 'pointer',
               }}
+              className="project-card"
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-15px) rotateX(2deg)';
-                e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.3)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                if (window.innerWidth > 768) { // Only apply hover effects on desktop
+                  e.currentTarget.style.transform = 'translateY(-10px) rotateX(1deg)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) rotateX(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                if (window.innerWidth > 768) {
+                  e.currentTarget.style.transform = 'translateY(0) rotateX(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                }
               }}
             >
               {/* Project Header */}
               <div style={{
                 background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
                 color: 'white',
-                padding: '2.5rem',
+                padding: '2rem 1.5rem', // Mobile-friendly padding
                 position: 'relative',
                 overflow: 'hidden',
               }}>
                 <div style={{
                   position: 'absolute',
                   top: '10px',
-                  right: '20px',
+                  right: '15px',
                   background: getImpactColor(project.impact),
                   color: 'white',
-                  padding: '4px 12px',
-                  borderRadius: '20px',
-                  fontSize: '0.8rem',
+                  padding: '4px 10px',
+                  borderRadius: '15px',
+                  fontSize: 'clamp(0.7rem, 3vw, 0.8rem)', // Responsive font size
                   fontWeight: '600',
+                  maxWidth: '120px', // Prevent overflow on mobile
+                  textAlign: 'center',
+                  wordBreak: 'break-word',
                 }}>
                   {project.impact}
                 </div>
                 
                 <h3 style={{
-                  fontSize: '1.4rem',
+                  fontSize: 'clamp(1.2rem, 5vw, 1.4rem)', // Responsive title
                   fontWeight: '600',
                   marginBottom: '0.5rem',
                   margin: 0,
+                  paddingRight: '140px', // Account for impact badge
+                  lineHeight: '1.3',
                 }}>
                   {project.title}
                 </h3>
                 <p style={{
                   opacity: 0.9,
-                  fontSize: '0.95rem',
+                  fontSize: 'clamp(0.85rem, 3.5vw, 0.95rem)', // Responsive subtitle
                   margin: '0.5rem 0 0 0',
                   fontWeight: '500',
+                  lineHeight: '1.4',
                 }}>
                   {project.subtitle}
                 </p>
               </div>
 
               {/* Project Body */}
-              <div style={{ padding: '2.5rem' }}>
+              <div style={{ padding: '2rem 1.5rem' }}> {/* Mobile-friendly padding */}
                 <p style={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   lineHeight: '1.6',
                   marginBottom: '2rem',
-                  fontSize: '1rem',
+                  fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', // Responsive description
                 }}>
                   {project.description}
                 </p>
@@ -230,7 +243,7 @@ const Projects = () => {
                 <div style={{ marginBottom: '2rem' }}>
                   <h4 style={{
                     color: '#60a5fa',
-                    fontSize: '0.9rem',
+                    fontSize: 'clamp(0.8rem, 3vw, 0.9rem)', // Responsive section title
                     fontWeight: '600',
                     marginBottom: '1rem',
                     textTransform: 'uppercase',
@@ -249,20 +262,25 @@ const Projects = () => {
                         style={{
                           background: 'rgba(96, 165, 250, 0.2)',
                           color: '#60a5fa',
-                          padding: '0.4rem 1rem',
-                          borderRadius: '25px',
-                          fontSize: '0.85rem',
+                          padding: '0.4rem 0.8rem',
+                          borderRadius: '20px',
+                          fontSize: 'clamp(0.75rem, 3vw, 0.85rem)', // Responsive tag font
                           fontWeight: '500',
                           border: '1px solid rgba(96, 165, 250, 0.3)',
                           transition: 'all 0.3s ease',
+                          wordBreak: 'break-word', // Prevent overflow
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.background = 'rgba(96, 165, 250, 0.3)';
-                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          if (window.innerWidth > 768) {
+                            e.currentTarget.style.background = 'rgba(96, 165, 250, 0.3)';
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                          }
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.background = 'rgba(96, 165, 250, 0.2)';
-                          e.currentTarget.style.transform = 'translateY(0)';
+                          if (window.innerWidth > 768) {
+                            e.currentTarget.style.background = 'rgba(96, 165, 250, 0.2)';
+                            e.currentTarget.style.transform = 'translateY(0)';
+                          }
                         }}
                       >
                         {tech}
@@ -275,7 +293,7 @@ const Projects = () => {
                 <div>
                   <h4 style={{
                     color: '#10b981',
-                    fontSize: '0.9rem',
+                    fontSize: 'clamp(0.8rem, 3vw, 0.9rem)', // Responsive section title
                     fontWeight: '600',
                     marginBottom: '1rem',
                     textTransform: 'uppercase',
@@ -297,7 +315,7 @@ const Projects = () => {
                           position: 'relative',
                           paddingLeft: '1.5rem',
                           lineHeight: '1.5',
-                          fontSize: '0.95rem',
+                          fontSize: 'clamp(0.85rem, 3.5vw, 0.95rem)', // Responsive result text
                         }}
                       >
                         <span style={{
@@ -305,7 +323,7 @@ const Projects = () => {
                           left: '0',
                           color: '#10b981',
                           fontWeight: 'bold',
-                          fontSize: '1.1rem',
+                          fontSize: '1rem',
                         }}>
                           ✓
                         </span>
@@ -322,14 +340,14 @@ const Projects = () => {
         {/* Call to Action */}
         <div style={{
           textAlign: 'center',
-          marginTop: '4rem',
+          marginTop: '3rem',
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease 1.5s',
         }}>
           <div style={{
             background: 'rgba(255, 255, 255, 0.05)',
-            padding: '2rem',
+            padding: '2rem 1.5rem', // Mobile-friendly padding
             borderRadius: '15px',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(10px)',
@@ -338,7 +356,7 @@ const Projects = () => {
           }}>
             <h3 style={{
               color: '#60a5fa',
-              fontSize: '1.3rem',
+              fontSize: 'clamp(1.1rem, 4.5vw, 1.3rem)', // Responsive CTA title
               fontWeight: '600',
               marginBottom: '1rem',
             }}>
@@ -348,6 +366,7 @@ const Projects = () => {
               color: 'rgba(255, 255, 255, 0.8)',
               lineHeight: '1.6',
               marginBottom: '1.5rem',
+              fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', // Responsive CTA text
             }}>
               Each project represents a unique challenge solved through data-driven insights. 
               Let's discuss how similar approaches can drive results for your organization.
@@ -355,13 +374,15 @@ const Projects = () => {
             <button style={{
               background: 'linear-gradient(to right, #2563eb, #7c3aed)',
               color: 'white',
-              padding: '12px 30px',
+              padding: '12px 25px',
               borderRadius: '25px',
               border: 'none',
               cursor: 'pointer',
-              fontSize: '1rem',
+              fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', // Responsive button text
               fontWeight: '600',
               transition: 'all 0.3s ease',
+              minHeight: '48px', // Touch-friendly height
+              minWidth: '200px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px)';
@@ -379,9 +400,75 @@ const Projects = () => {
 
       {/* Mobile Responsive Styles */}
       <style jsx>{`
+        /* Mobile: Single column */
         @media (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          
+          .project-card {
+            margin: 0 !important;
+          }
+          
+          /* Disable hover effects on mobile */
+          .project-card:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+          }
+        }
+
+        /* Small mobile screens */
+        @media (max-width: 480px) {
           section {
-            padding: 80px 1rem !important;
+            padding: 60px 0.75rem 40px 0.75rem !important;
+          }
+          
+          .projects-grid {
+            gap: 1rem !important;
+          }
+        }
+
+        /* Tablet: Two columns */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 2rem !important;
+          }
+        }
+
+        /* Desktop: Two columns with larger cards */
+        @media (min-width: 1025px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 2rem !important;
+          }
+          
+          section {
+            padding: 120px 2rem !important;
+          }
+        }
+
+        /* Large desktop: Still two columns for better readability */
+        @media (min-width: 1400px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 3rem !important;
+          }
+        }
+
+        /* Landscape mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+          section {
+            padding: 40px 1rem 30px 1rem !important;
+          }
+        }
+
+        /* Improve touch interactions on mobile */
+        @media (max-width: 768px) {
+          .project-card {
+            -webkit-tap-highlight-color: rgba(96, 165, 250, 0.2);
           }
         }
       `}</style>
